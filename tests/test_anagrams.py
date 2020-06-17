@@ -13,6 +13,7 @@ class TestAnagrams(unittest.TestCase):
     Benchmarking test case. We test actual functionality of `find_anagrams`
     with doctests, which is why this test case excludes those unit tests.
     """
+
     def setUp(self):
         module_name = 'anagrams'
         """import the module(s) under test, in the context of this test fixture"""
@@ -29,7 +30,7 @@ class TestAnagrams(unittest.TestCase):
         failure_text = (
             f'\nfind_anagrams() took {actual_time:.03f} seconds, which exceeds the '
             f'benchmark of {benchmark:.03f} seconds'
-            )
+        )
         self.assertLessEqual(actual_time, benchmark, failure_text)
 
     def test_correct_result(self):
@@ -48,7 +49,6 @@ class TestAnagrams(unittest.TestCase):
             short_list = f.read().split()
         self.run_find_anagrams(short_list, 0.030)
 
-    @unittest.skip("Remove this line once short test passes")
     def test_long(self):
         """Check find_anagrams() with long word list."""
         with open("words/long.txt") as f:
